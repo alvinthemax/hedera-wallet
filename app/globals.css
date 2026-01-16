@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 10, 10, 10;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-hedera-purple to-hedera-blue bg-clip-text text-transparent;
+  }
+  
+  .wallet-card {
+    @apply bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-2xl shadow-xl;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg 
+           bg-white dark:bg-gray-800 focus:border-hedera-blue focus:ring-2 
+           focus:ring-hedera-blue/20 focus:outline-none transition-all;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-hedera-purple to-hedera-blue text-white 
+           font-semibold py-3 px-6 rounded-lg hover:opacity-90 
+           transition-all duration-300 transform hover:-translate-y-0.5 
+           active:translate-y-0 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-hedera-purple text-hedera-purple 
+           font-semibold py-3 px-6 rounded-lg hover:bg-hedera-purple/10 
+           transition-all duration-300;
+  }
+  
+  .loader {
+    @apply inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin;
+  }
+}
